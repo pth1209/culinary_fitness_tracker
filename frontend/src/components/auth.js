@@ -11,26 +11,30 @@ export const Auth= () => {
 }
 
 const Login = () => {
-
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
-
-    const [_, setCookies] = useCookies(["access_token"])
-
-    const navigate = useNavigate()
-
+    const [_, setCookies] = useCookies(["access_token"]);
+  
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+  
+    const navigate = useNavigate();
+  
     const handleSubmit = async (event) => {
-        event.preventDefault();
-        try {
-            const response = await axios.post("http://localhost:5000/auth/login", {username, password,})
-            setCookies("access_token", response.data.token)
-            window.localStorage.setItem("userID", response.data.userid)
-            //after registering, redirect to home page
-            navigate("/")
-        } catch (error) {
-            console.error(error)
-        }
-    }
+      event.preventDefault();
+  
+      try {
+        const response = await axios.post("http://localhost:5000/auth/login", {
+          username,
+          password,
+        });
+  
+        setCookies("access_token", response.data.token);
+        console.log(response.data.token)
+        window.localStorage.setItem("userID", response.data.userID);
+        navigate("/");
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
     return <Form 
             sername = {username} 
@@ -40,7 +44,6 @@ const Login = () => {
             label = "Login" 
             onSubmit = {handleSubmit}/>
 }
-
 
 const Register = () => {
     const [username, setUsername] = useState("")

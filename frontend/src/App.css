@@ -72,3 +72,21 @@ input {
   font-size: 16px;
   border-radius: 5px;
 }
+
+.createRecipe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  width: 400px;
+}
+
+.createRecipe form {
+  display: flex;
+  flex-direction: column;
+}
