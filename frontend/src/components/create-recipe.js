@@ -12,6 +12,7 @@ export const CreateRecipe = () => {
         imageUrl: "",
         time: 0,
         makerUser: userID,
+        calories: 0
     })
 
     const handleChange = (event) => {
@@ -35,7 +36,7 @@ export const CreateRecipe = () => {
     const onSubmit = async (event) => {
         event.preventDefault();
         try {
-            axios.post("http://localhost:5000/recipes/", recipe);
+            axios.post("http://localhost:5000/recipes", recipe);
             alert("Recipe created")
             navigate("/");
         } catch (error) {
@@ -64,6 +65,8 @@ export const CreateRecipe = () => {
             <input type= "text" id = "imageUrl" name = "imageUrl" onChange = {handleChange}/>
             <label htmlFor = "time">Cooking Time (minutes)</label>
             <input type = "number" id = "time" name = "time" onChange = {handleChange}/>
+            <label htmlFor = "calories">Calories (kcal)</label>
+            <input type = "number" id = "calories" name = "calories" onChange = {handleChange}/>
             <button type = "submit">Create Recipe</button>
         </form>
     </div>
