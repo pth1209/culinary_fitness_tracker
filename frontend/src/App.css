@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Overpass&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 .App {
   display: flex;
@@ -30,9 +30,9 @@ body {
 a {
   color: white;
   text-decoration: none;
-  font-family: "Overpass";
+  font-family: "Inter";
   margin: 20px;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .auth {
