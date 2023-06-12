@@ -50,7 +50,6 @@ a {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  /* background-color: RGB (204, 204, 255); */
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   margin: 20px;
@@ -104,4 +103,10 @@ img {
   width: 400px;
   height: auto;
   margin-bottom: 10px;
+}
+
+.home-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

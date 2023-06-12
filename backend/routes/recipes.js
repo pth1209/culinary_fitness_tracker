@@ -37,6 +37,7 @@ router.put("/", async (req,res) => {
     }
 })
 
+//used in home page
 router.get("/savedRecipes/id/:userID", async (req, res) => {
     try {
         const user = await UserModel.findById(req.params.userID)
@@ -46,9 +47,10 @@ router.get("/savedRecipes/id/:userID", async (req, res) => {
     }
 })
 
-router.get("/savedRecipes/", async (req, res) => {
+//used in the savedRecipes page
+router.get("/savedRecipes/:userID", async (req, res) => {
     try {
-        const user = await UserModel.findById(req.body.userID)
+        const user = await UserModel.findById(req.params.userID)
         const savedRecipes = await RecipeModel.find({
             _id: {$in : user.savedRecipes}
         })
