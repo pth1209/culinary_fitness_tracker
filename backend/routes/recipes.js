@@ -25,7 +25,7 @@ router.post("/", async (req,res) => {
     }
 })
 
-router.post("/", async (req,res) => {
+router.put("/", async (req,res) => {
     try { 
         const recipe = await RecipeModel.findById(req.body.recipeId)
         const user = await UserModel.findById(req.body.userId)
