@@ -33,13 +33,13 @@ export const Home = () => {
 
     return (
         <div>
-          <h1>Recipes</h1>
+          <h1 className = "home-header">Recipes</h1>
           <ul>
             {recipes.map((recipe) => (
               <li key={recipe._id}>
                 <div>
                   <h2>{recipe.name}</h2>
-                  <button>Save Recipe</button>
+                  <button onClick = {() => saveRecipe(recipe._id)}>Save Recipe</button>
                 </div>
                 <div className="instructions">
                   <p>{recipe.instructions}</p>
