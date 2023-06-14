@@ -5,6 +5,7 @@ import dotenv from "dotenv"
 
 import { UserRouter } from "./routes/users.js "
 import { RecipeRouter } from "./routes/recipes.js "
+import { CalorieRouter } from "./routes/calorie.js";
 
 dotenv.config()
 
@@ -20,6 +21,7 @@ app.use(cors());
 
 app.use("/auth", UserRouter);
 app.use("/recipes", RecipeRouter);
+app.use("/calories", CalorieRouter)
 
 mongoose.connect(uri);
 

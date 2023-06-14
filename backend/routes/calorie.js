@@ -22,3 +22,5 @@ router.get("/:ID", async (req, res) => {
         res.json(error)
     }
 })
+
+export {router as CalorieRouter}
