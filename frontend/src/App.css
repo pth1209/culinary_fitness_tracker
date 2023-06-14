@@ -110,3 +110,26 @@ img {
   justify-content: center;
   align-items: center;
 }
+
+.logCalories {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin: 200px;
+  width: 400px;
+}
+
+.logCalories form {
+  display: flex;
+  flex-direction: column;
+}
+
+.logButton {
+  margin-top: 25px;
+  font-weight: bold;
+  font-family: "Inter";
+}
