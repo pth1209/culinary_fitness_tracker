@@ -41,6 +41,10 @@ export const Home = () => {
 
     const isRecipeSaved = (id) => savedRecipes.includes(id);
 
+    const formatIngredients = (ingredients) => {
+      return ingredients.join(", ")
+    }
+
     return (
         <div>
           <h1 className = "home-header">Recipes</h1>
@@ -57,6 +61,7 @@ export const Home = () => {
                   <p>{recipe.instructions}</p>
                 </div>
                 <img src={recipe.imageUrl} alt={recipe.name} />
+                <p>Ingredients: {formatIngredients(recipe.ingredients)}</p>
                 <p>Cooking Time: {recipe.time} minutes</p>
                 <p>Calories: {recipe.calories} kcal</p>
               </li>
