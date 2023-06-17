@@ -14,7 +14,7 @@ router.post("/add", async (req, res) => {
     }
 })
 
-router.get("/:ID", async (req, res) => {
+router.get("/:userID", async (req, res) => {
     try {
         const user = await UserModel.findById(req.params.userID)
         res.json({calories: user?.calories})
