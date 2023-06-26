@@ -133,3 +133,23 @@ img {
   font-weight: bold;
   font-family: "Inter";
 }
+
+.calorie-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.calorie-table th,
+.calorie-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.calorie-table th {
+  background-color: #f2f2f2;
+}
+
+.calorie-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}

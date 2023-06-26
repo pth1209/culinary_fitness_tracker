@@ -19,6 +19,8 @@ export const EnterCalorie= () => {
         loggedDate: getTodayDate()
     })
 
+    const [savedCalories, setSavedCalories] = useState([])
+
     const handleInputChange = (event) => {
         setCalories((prevState) => ({
             ...prevState,
@@ -28,12 +30,23 @@ export const EnterCalorie= () => {
 
     const navigate = useNavigate();
 
-    const onSubmit = async (event) => {
+    const logCalorie = async (event) => {
         event.preventDefault()
         try{
-            axios.post("http://localhost:5000/calories/add", calories)
+            const response = await axios.post("http://localhost:5000/calories/add", calories)
             alert("Calories logged")
+            console.log(response.data.loggedUser)
+            await saveCalorie(response.data.loggedUser);
             navigate("/")
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    const saveCalorie = async (calorieID) => {
+        try {
+            const response = await axios.put("http://localhost:5000/calories/", {calorieID})
+            setSavedCalories(response.data.calories || [])
         } catch (err) {
             console.log(err)
         }
@@ -42,10 +55,11 @@ export const EnterCalorie= () => {
 
     return <div className = "logCalories">
         <h2>Enter Calories</h2>
-        <form onSubmit = {onSubmit}>
+        <form onSubmit = {logCalorie}>
             <label></label>
             <input type= "text" onChange = {handleInputChange}/>
-            <button type = "submit" className = "logButton">Log Calories</button>
+            <button 
+            type = "submit" className = "logButton">Log Calories</button>
         </form>
     </div>
 }

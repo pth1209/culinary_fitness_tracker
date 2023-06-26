@@ -33,13 +33,13 @@ export const Home = () => {
     const saveRecipe = async (recipeID) => {
       try {
         const response = await axios.put("http://localhost:5000/recipes", {recipeID, userID})
-        setSavedRecipes(response.data.savedRecipes)
+        setSavedRecipes(response.data.savedRecipes || [])
       } catch (error) {
         console.log(error);
       }
     };
 
-    const isRecipeSaved = (id) => savedRecipes.includes(id);
+    const isRecipeSaved = (id) => savedRecipes && savedRecipes.includes(id);
 
     const formatIngredients = (ingredients) => {
       return ingredients.join(", ")
