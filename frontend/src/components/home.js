@@ -48,6 +48,9 @@ export const Home = () => {
     return (
         <div>
           <h1 className = "home-header">Recipes</h1>
+          {recipes.length === 0 ? (
+            <h2 className = "empty-message">Create a recipe now!</h2>
+          ) : (
           <ul>
             {recipes.map((recipe) => (
               <li key={recipe._id}>
@@ -67,6 +70,7 @@ export const Home = () => {
               </li>
             ))}
           </ul>
+          )}
         </div>
       );
 }

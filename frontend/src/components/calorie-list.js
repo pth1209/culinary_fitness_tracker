@@ -23,6 +23,7 @@ export const CalorieList= () => {
 
 
     return (
+      <div className = "table-container">
         <table className="calorie-table">
           <thead>
             <tr>
@@ -39,6 +40,7 @@ export const CalorieList= () => {
             ))}
           </tbody>
         </table>
+      </div>
       );
       
       

@@ -16,27 +16,11 @@ router.post("/add", async (req, res) => {
 })
 
 router.put("/", async (req, res) => {
-    const calorie = await CalorieModel.findOne({ loggedUser: req.body.calorieID });
-    const user = await UserModel.findById(req.body.calorieID);
+    const calorie = await CalorieModel.findOne({ _id: req.body.calorieID });
+    const user = await UserModel.findById(req.body.userID);
     user.calories.push(calorie)
     await user.save();
     res.json({calories: user.calories})
-    // if (mongoose.Types.ObjectId.isValid(calorieID)) {
-    //     const calorie = await CalorieModel.findOne({ loggedUser: req.body.calorieID });
-    // } else {
-    //     console.log("invalid")
-    // }
-//     try {
-//         console.log('Calorie ID:', req.body.calorieID)
-//         const calorie = await CalorieModel.findById(req.body.calorieID)
-//         console.log(calorie)
-//         const user = await UserModel.findById(req.body.userID)
-//         user.calories.push(calorie)
-//         await user.save();
-//         res.json({calories: user.calories})   
-//     } catch (err) {
-//     console.log(err)
-// }
 })
 
 router.get("/:userID", async (req, res) => {

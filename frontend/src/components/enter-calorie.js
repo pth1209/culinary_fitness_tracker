@@ -35,24 +35,22 @@ export const EnterCalorie= () => {
         try{
             const response = await axios.post("http://localhost:5000/calories/add", calories)
             alert("Calories logged")
-            console.log(response.data.loggedUser)
-            await saveCalorie(response.data.loggedUser);
+            await saveCalorie(response.data._id, response.data.loggedUser);
             navigate("/")
         } catch (err) {
             console.log(err)
         }
     }
 
-    const saveCalorie = async (calorieID) => {
+    const saveCalorie = async (calorieID, userID) => {
         try {
-            const response = await axios.put("http://localhost:5000/calories/", {calorieID})
+            const response = await axios.put("http://localhost:5000/calories/", {calorieID, userID})
             setSavedCalories(response.data.calories || [])
         } catch (err) {
             console.log(err)
         }
     }
     
-
     return <div className = "logCalories">
         <h2>Enter Calories</h2>
         <form onSubmit = {logCalorie}>
