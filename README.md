@@ -1,4 +1,4 @@
-# Recipes and Calorie logging website
+# Gastronomix - culinary fitness tracker
 
 
 ### Dependencies to install for backend
